@@ -1,10 +1,47 @@
-<h1>Fund info...</h1>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="<%= asset_path ('gold.jpeg')%>" alt="..">
+      <div class="caption">
+        <h3><%= @brokers[0].fund_name %></h3>
+        <p><%= "This fund is managed by #{@brokers[0].name}." %></p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="<%= asset_path ('oil_gas.jpg')%>" alt="...">
+      <div class="caption">
+        <h3><%= @brokers[1].fund_name %></h3>
+        <p><%= "This fund is managed by #{@brokers[1].name}."%></p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% @brokers.each do |b|  %>
-<ul>
-  <li><%= link_to b.name, broker_path(b.id) %></li>
-  <li><%= b.fund_name %></li>
-  <li><%= b.company.name %></li>
-</ul><hr>
 
-  <% end %>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="<%= asset_path ('bitcoin.jpeg')%>" alt="...">
+      <div class="caption">
+      <h3><%= @brokers[2].fund_name %></h3>
+      <p><%= "This fund is managed by #{@brokers[2].name}."%></p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="<%= asset_path ('sports.jpg')%>" alt="...">
+      <div class="caption">
+      <h3><%= @brokers[3].fund_name %></h3>
+      <p><%= "This fund is managed by #{@brokers[3].name}."%></p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
