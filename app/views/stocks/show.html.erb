@@ -1,0 +1,10 @@
+<h1>Stock Info ....</h1>
+
+<ul>
+  <li>Company Name: <%= @stock.company_name %></li>
+  <li>Exchange : <%= @stock.primary_exchange %></li>
+  <li>Price : <%= "$" + @stock.latest_price.to_s %></li>
+  <li>Market Cap : <%= "$" + @stock.market_cap.to_s %></li>
+  <li>Percentage Change : <%= "$" + @stock.change_percent.to_s %></li>
+  <li>Year's Change : <%= @stock.ytd_change %></li>
+</ul>
