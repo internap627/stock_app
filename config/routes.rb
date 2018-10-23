@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :companies
   resources :brokers
   resources :users
+
+  # session functionality
+  get '/login', to: 'sessions#new'
+  post '/sessions', to: 'sessions#create'
   post "/logout", to: "sessions#destroy"
 
   root "users#new"
