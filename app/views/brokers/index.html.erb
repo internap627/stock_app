@@ -2,7 +2,7 @@
 
 <% @brokers.each do |b|  %>
 <ul>
-  <li><%= b.name %></li>
+  <li><%= link_to b.name, broker_path(b.id) %></li>
   <li><%= b.fund_name %></li>
   <li><%= b.company.name %></li>
 </ul><hr>

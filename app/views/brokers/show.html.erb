@@ -1,0 +1,11 @@
+<h2>Company Name : <%=@broker.company.name  %></h2>
+
+<h2>Broker : <%= @broker.name %></h2><hr>
+
+<h3>Stock List</h3>
+
+  <% @broker.stocks.each do |s| %>
+  <ul>
+  <li> <%= link_to s.name, stock_path(s.id) %></li>
+  </ul>
+  <% end %>
