@@ -3,5 +3,6 @@
   Username: <%= f.text_field :username %>
   Password: <%= f.password_field :password %>
   Password Confirmation: <%= f.password_field :password_confirmation %>
+  <%= f.collection_select :broker_id, Broker.all, :id, :name %>
   <%= f.submit "Submit" %>
 <% end %>
