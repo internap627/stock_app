@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
    if params[:user][:password] == params[:user][:password_confirmation]
-     user = User.create(name: params[:user][:name], username: params[:user][:username], password: params[:user][:password])
+     user = User.create(name: params[:user][:name], username: params[:user][:username], password: params[:user][:password], broker_id: params[:user][:broker_id])
      byebug
      session[:user_id] = user.id
      redirect_to brokers_path
