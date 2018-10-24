@@ -20,7 +20,14 @@ class UsersController < ApplicationController
  end
 
  def update
-   
+
+ end
+
+ def update_broker
+   @user = User.find(params[:user_id])
+   @user.update(broker_id: params[:broker_id].to_i)
+
+   redirect_to user_path(@user)
  end
 
  private

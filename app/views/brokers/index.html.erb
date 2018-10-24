@@ -1,48 +1,25 @@
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="<%= asset_path ('facebook.jpg')%>" alt="..">
-      <div class="caption">
-        <h3><%= @brokers[0].fund_name %></h3>
-        <p><%= "This fund is managed by #{@brokers[0].name}." %></p>
-        <p><a href="<%= broker_path(@brokers[0].id) %>" class="btn btn-primary" role="button">Details</a> <a href="<%=  %>" class="btn btn-default" role="button">Select Broker</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="<%= asset_path ('oil_gas.jpg')%>" alt="...">
-      <div class="caption">
-        <h3><%= @brokers[1].fund_name %></h3>
-        <p><%= "This fund is managed by #{@brokers[1].name}."%></p>
-        <p><a href="<%= broker_path(@brokers[1].id)%>" class="btn btn-primary" role="button">Details</a> <a href="#" class="btn btn-default" role="button">Select Broker</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="<%= asset_path ('bitcoin.jpeg')%>" alt="...">
-      <div class="caption">
-      <h3><%= @brokers[2].fund_name %></h3>
-      <p><%= "This fund is managed by #{@brokers[2].name}."%></p>
-        <p><a href="<%= broker_path(@brokers[2].id)%>" class="btn btn-primary" role="button">Details</a> <a href="#" class="btn btn-default" role="button"  >Select Broker</a></p>
-      </div>
-    </div>
-  </div>
-
+<% @brokers.each do |b| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <img src="<%= asset_path ('sports.jpg')%>" alt="...">
       <div class="caption">
-      <h3><%= @brokers[3].fund_name %></h3>
-      <p><%= "This fund is managed by #{@brokers[3].name}."%></p>
-        <p><a href="<%= broker_path(@brokers[3].id)%>" class="btn btn-primary" role="button">Details</a> <a href="#" class="btn btn-default" role="button">Select Broker</a></p>
+        <h3><%= b.fund_name %></h3>
+        <p><%= "This fund is managed by #{b.name}."%></p>
+        <p>
+          <a
+            href="<%= broker_path(b.id)%>"
+            class="btn btn-primary"
+            role="button"
+          >
+            Details
+          </a>
+          <% if logged_in? %>
+            <%= form_tag "/users/#{current_user.id}/update_broker_id/#{b.id}", method: "post" do %>
+              <%= submit_tag 'Select broker' %>
+            <% end %>
+          <% end %>
+        </p>
       </div>
     </div>
   </div>
-</div>
+<% end %>

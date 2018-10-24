@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :portfolios
   resources :companies
   resources :brokers
-  resources :users
+  resources :users, only: [:new, :show]
 
   # session functionality
   get '/login', to: 'sessions#new'
@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   root "users#new"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # update broker route
+  post '/users/:user_id/update_broker_id/:broker_id', to: 'users#update_broker'
 end
