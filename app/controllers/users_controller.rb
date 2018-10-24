@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
+
   def create
     @user = User.new(name: params[:user][:name], username: params[:user][:username], password: params[:user][:password], broker_id: params[:user][:broker_id])
 
