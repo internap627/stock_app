@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="<%= asset_path ('gold.jpeg')%>" alt="..">
+      <img src="<%= asset_path ('facebook.jpg')%>" alt="..">
       <div class="caption">
         <h3><%= @brokers[0].fund_name %></h3>
         <p><%= "This fund is managed by #{@brokers[0].name}." %></p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <p><a href="<%= broker_path(@brokers[0].id) %>" class="btn btn-primary" role="button">Details</a> </p>
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
       <div class="caption">
         <h3><%= @brokers[1].fund_name %></h3>
         <p><%= "This fund is managed by #{@brokers[1].name}."%></p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <p><a href="<%= broker_path(@brokers[1].id)%>" class="btn btn-primary" role="button">Details</a> </p>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@
       <div class="caption">
       <h3><%= @brokers[2].fund_name %></h3>
       <p><%= "This fund is managed by #{@brokers[2].name}."%></p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <p><a href="<%= broker_path(@brokers[2].id)%>" class="btn btn-primary" role="button">Details</a> </p>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@
       <div class="caption">
       <h3><%= @brokers[3].fund_name %></h3>
       <p><%= "This fund is managed by #{@brokers[3].name}."%></p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <p><a href="<%= broker_path(@brokers[3].id)%>" class="btn btn-primary" role="button">Details</a> </p>
       </div>
     </div>
   </div>

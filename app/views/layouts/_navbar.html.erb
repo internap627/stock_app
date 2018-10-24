@@ -8,19 +8,27 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Brokers", brokers_path, class:"navbar-brand" %>
+      <%= link_to "HOME", brokers_path, class:"navbar-brand" %>
 
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
+    <ul class="nav navbar-nav navbar-right">
+
+      <% if !user %>
+        <!-- <li><%= link_to "You are not logged in", login_path %></li> -->
+        <div class="alert alert-danger" role="alert">"You are not logged in"</div>
+      <% else %>
+        <li><%= user.id ? "Hello, #{user.name}" : "Hello, Guest!" %></li>
+      <% end %>
+      <!-- <div class="alert alert-success" role="alert">...</div> -->
+
+    </ul>
+
 
 
       <ul class="nav navbar-nav navbar-right">
-        <% if !user %>
-          <p>Not logged in</p>
-        <% else %>
-          <li><%= user.id ? "Hello, #{user.name}" : "Hello, Guest!" %></li>
-        <% end %>
+
         <li><%= link_to "Signup", new_user_path %></li>
         <li><%= link_to "Login", login_path %></li>
         <li><%= link_to "Logout", "/logout", method: "post" %></li>
