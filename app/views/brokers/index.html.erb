@@ -1,7 +1,7 @@
 <% @brokers.each do |b| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="<%= asset_path ('sports.jpg')%>" alt="...">
+      <img src="<%= asset_path (b.img)%>" alt="...">
       <div class="caption">
         <h3><%= b.fund_name %></h3>
         <p><%= "This fund is managed by #{b.name}."%></p>
