@@ -1,16 +1,18 @@
 <%authorized? %>
 
-<%if @user.broker %>
-  <% avg = @user.broker.average %>
-  <div class="progress">
-    <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: <%= avg %>%;">
-    <strong>Profit Earning Ratio  <%= avg %>% </strong>
+
+  <h2> Welcome <span class="label label-default"><%=@user.name.capitalize %></span></h2><br>
+  <h4> Broker: <%=link_to @user.broker.name, broker_path(@user.broker.id) %></h4><br>
+
+  <%if @user.broker %>
+    <% avg = @user.broker.average %>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: <%= avg %>%;">
+      <strong>Profit Earning Ratio  <%= avg %>% </strong>
+      </div>
     </div>
-  </div>
 
 
-  <h3> Welcome <span class="label label-default"><%=@user.name.capitalize %></span></h3><br>
-  <h4> Your broker is <span class="label label-default"><%=@user.broker.name %></span></h4><br>
 
   <div class="panel panel-default">
     <!-- Default panel contents -->
@@ -29,7 +31,6 @@
   </div>
 <%else%>
   <h3> Welcome <span class="label label-default"><%=@user.name.capitalize %></span></h3><br>
-  <h2> Please select your Broker<h2>
-  <%= link_to "Broker", brokers_path %>
+  <h4><%= link_to "Please select your Broker", brokers_path %></h4>
 
 <%end%>

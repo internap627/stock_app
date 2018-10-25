@@ -1,4 +1,9 @@
 <%authorized? %>
+
+
+
+<h3><%= @broker.fund_name %> <span class="label label-default"><%=@broker.name %></span></h3><br>
+
 <% avg = @broker.average %>
 <div class="progress">
   <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: <%= avg %>%;">
@@ -6,8 +11,6 @@
   </div>
 </div>
 
-
-<h3><%= @broker.fund_name %> <span class="label label-default"><%=@broker.name %></span></h3>
 
 
 <div class="panel panel-default">
