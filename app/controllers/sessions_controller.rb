@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to brokers_path
     else
-      render "/users/new"
+      redirect_to login_path
     end
   end
 

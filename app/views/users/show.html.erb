@@ -1,28 +1,35 @@
 <%authorized? %>
 
-<% avg = @user.broker.average %>
-<div class="progress">
-  <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: <%= avg %>%;">
-  <strong>Profit Earning Ratio  <%= avg %>% </strong>
+<%if @user.broker %>
+  <% avg = @user.broker.average %>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: <%= avg %>%;">
+    <strong>Profit Earning Ratio  <%= avg %>% </strong>
+    </div>
   </div>
-</div>
 
 
-<h3> Welcome <span class="label label-default"><%=@user.name %></span></h3>
+  <h3> Welcome <span class="label label-default"><%=@user.name.capitalize %></span></h3><br>
+  <h4> Your broker is <span class="label label-default"><%=@user.broker.name %></span></h4><br>
 
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Holdings</div><br>
 
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Holdings</div><br>
+    <!-- Table -->
+    <% @user.broker.stocks.each do |s| %>
 
-  <!-- Table -->
-  <% @user.broker.stocks.each do |s| %>
+    <table class="table">
+     <li><strong> <%= link_to s.name, stock_path(s.id) %> </strong></li>
 
-  <table class="table">
-   <li><strong> <%= link_to s.name, stock_path(s.id) %> </strong></li>
+   </table>
 
- </table>
+   <hr>
+  <% end %>
+  </div>
+<%else%>
+  <h3> Welcome <span class="label label-default"><%=@user.name.capitalize %></span></h3><br>
+  <h2> Please select your Broker<h2>
+  <%= link_to "Broker", brokers_path %>
 
- <hr>
-<% end %>
-</div>
+<%end%>
