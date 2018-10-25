@@ -1,19 +1,28 @@
 <%authorized? %>
 
-<h2>Welcome <%= @user.name.capitalize %></h2>
+<% avg = @user.broker.average %>
+<div class="progress">
+  <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: <%= avg %>%;">
+  <strong>Profit Earning Ratio  <%= avg %>% </strong>
+  </div>
+</div>
 
-<% if @user.broker %>
-  <h3>Your broker is: <%= @user.broker.name.capitalize %></h3>
 
-  <h3> You hold stocks in: </h3>
+<h3> Welcome <span class="label label-default"><%=@user.name %></span></h3>
 
-  <ul>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Holdings</div><br>
+
+  <!-- Table -->
   <% @user.broker.stocks.each do |s| %>
-    <li>
-    <%= s.name %>
-  <% end %>
-  </li>
-  <ul>
-<% else %>
-  <h1> Please select your broker <h2>
+
+  <table class="table">
+   <li><strong> <%= link_to s.name, stock_path(s.id) %> </strong></li>
+
+ </table>
+
+ <hr>
 <% end %>
+</div>
