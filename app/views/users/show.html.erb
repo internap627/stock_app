@@ -1,10 +1,33 @@
+<style>
+
+
+.button {
+    background-color: #F5F5F5
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+</style>
+
 <%authorized? %>
 
 
   <h2> Welcome <span class="label label-default"><%=@user.name.capitalize %></span></h2><br>
-  <h4> Broker: <%=link_to @user.broker.name, broker_path(@user.broker.id) %></h4><br>
+
 
   <%if @user.broker %>
+
+  <h4> Broker: <%=link_to @user.broker.name, broker_path(@user.broker.id) %></h4><br>
+
+
+
     <% avg = @user.broker.average %>
     <div class="progress">
       <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: <%= avg %>%;">
@@ -25,12 +48,20 @@
      <li><strong> <%= link_to s.name, stock_path(s.id) %> </strong></li>
 
    </table>
-
    <hr>
   <% end %>
   </div>
-<%else%>
-  <h3> Welcome <span class="label label-default"><%=@user.name.capitalize %></span></h3><br>
-  <h4><%= link_to "Please select your Broker", brokers_path %></h4>
 
+  <button class="button">
+    <%= link_to "Delete Broker", @user, method: :delete %>
+
+  </button>
+  <br><br><br><br>
+
+
+<%else%>
+
+  <button class="button">
+    <h4><%= link_to "Please select your Broker", brokers_path %></h4>
+  </button>
 <%end%>

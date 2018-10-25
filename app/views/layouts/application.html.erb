@@ -7,6 +7,32 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<style>
+{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+
+
+/* Style the footer */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: 	#F5F5F5;
+    color: #696969;
+    text-align: center;
+}
+
+
+</style>
+
   </head>
 
   <body>
@@ -19,5 +45,12 @@
     <% end %>
 
     <%= yield %>
+
+
+
+<div class="footer">
+  <p>Nkosi & Aisha</p>
+</div>
+
   </body>
 </html>

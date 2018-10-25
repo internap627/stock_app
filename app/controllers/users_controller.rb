@@ -35,6 +35,13 @@ class UsersController < ApplicationController
    redirect_to user_path(@user)
  end
 
+ def destroy
+   @user = User.find(params[:id])
+   @user.broker = nil
+   @user.save
+   redirect_to brokers_path
+ end
+
  private
 
  def user_params
