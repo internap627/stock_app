@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :portfolios
   resources :companies
   resources :brokers
-  resources :users, only: [:new, :show]
+  resources :users
 
   # session functionality
   get '/login', to: 'sessions#new'

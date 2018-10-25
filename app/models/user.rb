@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   validates_confirmation_of :name, :username, :password
   validates :username, uniqueness: true
-  validates :password, length: { in: 6..15 }
+  validates :password, length: { in: 6..15 }, on: :create
   #validate :password_match
   # validates :password,
   #         # you only need presence on create
@@ -21,4 +21,9 @@ class User < ApplicationRecord
   #     errors.add(:password, "and Password Confirmation must match")
   #   end
   # end
+
+
+  def users_shares
+    self.broker.stocks.map { |s| s.name}
+  end
 end

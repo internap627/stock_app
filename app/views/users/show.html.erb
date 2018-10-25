@@ -1,3 +1,19 @@
 <%authorized? %>
 
-<h2>Welcome <%= @user.name %></h2>
+<h2>Welcome <%= @user.name.capitalize %></h2>
+
+<% if @user.broker %>
+  <h3>Your broker is: <%= @user.broker.name.capitalize %></h3>
+
+  <h3> You hold stocks in: </h3>
+
+  <ul>
+  <% @user.broker.stocks.each do |s| %>
+    <li>
+    <%= s.name %>
+  <% end %>
+  </li>
+  <ul>
+<% else %>
+  <h1> Please select your broker <h2>
+<% end %>
