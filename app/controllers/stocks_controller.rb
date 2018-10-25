@@ -6,7 +6,7 @@ class StocksController < ApplicationController
 
   def show
     @stock = Stock.find(params[:id])
-    @stock = StockQuote::Stock.quote(@stock.symbol)
+    @stock_obj = StockQuote::Stock.quote(@stock.symbol)
   end
 
 end

@@ -1,12 +1,41 @@
 <%authorized? %>
 
-<h1>Stock Info ....</h1>
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h4 class="list-group-item-heading"><strong><%= @stock.name %></strong></h4>
+    <p class="list-group-item-text">Company Name : <%= @stock_obj.company_name  %></p>
+  </a>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item" style="
+    max-width: 50rem">
+    <span class="badge"><%= @stock_obj.primary_exchange %></span>
+    Exchange :
+  </li>
+  <li class="list-group-item" style="
+    max-width: 50rem">
+    <span class="badge"><%= number_to_currency(@stock_obj.latest_price) %></span>
+    Price :
+  </li>
+  <li class="list-group-item" style="
+    max-width: 50rem">
+    <span class="badge"><%= number_to_currency(@stock_obj.market_cap) %></span>
+    Market Cap :
+  </li>
+  <li class="list-group-item" style="
+    max-width: 50rem">
+    <span class="badge"><%= number_to_currency(@stock_obj.change_percent) %></span>
+    Change :
+  </li>
+</ul>
+<!-- <h1>Stock Info ....</h1>
 
 <ul>
-  <li>Company Name: <%= @stock.company_name %></li>
-  <li>Exchange : <%= @stock.primary_exchange %></li>
-  <li>Price : <%= "$" + @stock.latest_price.to_s %></li>
-  <li>Market Cap : <%= "$" + @stock.market_cap.to_s %></li>
-  <li>Percentage Change : <%= "$" + @stock.change_percent.to_s %></li>
-  <li>Year's Change : <%= @stock.ytd_change %></li>
-</ul>
+  <li>Company Name: <%= @stock_obj.company_name %></li>
+  <li>Exchange : <%= @stock_obj.primary_exchange %></li>
+  <li>Price : <%= "$" + @stock_obj.latest_price.to_s %></li>
+  <li>Market Cap : <%= "$" + @stock_obj.market_cap.to_s %></li>
+  <li>Percentage Change : <%= "$" + @stock_obj.change_percent.to_s %></li>
+  <li>Year's Change : <%= @stock_obj.ytd_change %></li>
+</ul> -->
