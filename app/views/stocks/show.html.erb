@@ -4,7 +4,14 @@
   <a href="#" class="list-group-item active">
     <h4 class="list-group-item-heading"><strong><%= @stock.name %></strong></h4>
     <p class="list-group-item-text">Company Name : <%= @stock_obj.company_name  %></p>
+    <p class="list-group-item-text"><%= @stock_obj.latest_time  %></p>
   </a>
+</div><br>
+
+<div class="progress">
+  <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: <%= @stock_obj.pe_ratio * 2 %>%;">
+  <strong>Profit Earning Ratio  <%= @stock_obj.pe_ratio %>% </strong>
+  </div>
 </div>
 
 <ul class="list-group">
