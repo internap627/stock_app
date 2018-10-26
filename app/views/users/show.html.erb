@@ -50,7 +50,13 @@
    </table>
    <hr>
   <% end %>
-  </div>
+</div><br>
+
+<h4 style ="text-align: center;"><strong>Daily Percentage Change</strong></h4>
+<%= column_chart @user.user_stock_hash %>
+<br><br><br>
+
+
 
   <button class="button">
     <%= link_to "Delete Broker", @user, method: :delete %>

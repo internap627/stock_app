@@ -26,4 +26,18 @@ class User < ApplicationRecord
   def users_shares
     self.broker.stocks.map { |s| s.name}
   end
+
+  def user_stock_hash
+    array = []
+    symbols = self.broker.stocks.map {|s| s.symbol}.join(",")
+    api_call = StockQuote::Stock.quote(symbols)
+    api_call.map {|c|
+      arr = []
+      arr << c.company_name
+      arr << c.change_percent
+      array << arr }
+    array
+  end
+
+
 end
