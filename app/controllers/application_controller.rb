@@ -31,4 +31,13 @@ class ApplicationController < ActionController::Base
 
     end
   end
+
+  def authorized_for(user_id)
+    if session[:user_id] == @user.id
+      true
+    else
+      flash[:authorized] = "You only have access to your user page"
+      redirect_to current_user
+    end
+  end
 end
